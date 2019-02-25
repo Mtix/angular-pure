@@ -1,0 +1,7 @@
+<div class="todo-wrapper">
+  <mat-card>
+      <mat-card-title>Список задач</mat-card-title>
+      <app-todo-input (eventPush)="addTask($event)"></app-todo-input>
+      <app-todo-list [list]="taskList" (eventChecked)="check($event)" (eventRemove)="remove($event)"></app-todo-list>
+  </mat-card>
+</div>

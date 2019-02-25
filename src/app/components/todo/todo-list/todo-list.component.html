@@ -1,0 +1,5 @@
+<mat-list *ngIf="list">
+  <mat-list-item *ngFor="let item of list">
+    <app-todo-item [item]="item" (eventCheck)="check($event)" (eventRemove)="remove($event)"></app-todo-item>
+  </mat-list-item>
+</mat-list>

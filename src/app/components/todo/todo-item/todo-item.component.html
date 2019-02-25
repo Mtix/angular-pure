@@ -1,0 +1,11 @@
+<div class="todo-item" *ngIf="item">
+  <div class="name">{{item.name}}</div>
+  <div class="actions">
+    <mat-checkbox [(ngModel)]="item.checked" (change)="checked()"></mat-checkbox>
+    <button mat-icon-button (click)="remove()">
+      <mat-icon>
+        <i class="material-icons">delete</i>
+      </mat-icon>
+    </button>
+  </div>
+</div>

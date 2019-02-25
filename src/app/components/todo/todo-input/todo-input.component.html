@@ -1,0 +1,6 @@
+<div class="input-form">
+  <mat-form-field class="field-row">
+    <input matInput placeholder="Задача" [(ngModel)]="inputTaskName">
+  </mat-form-field>
+  <app-todo-button-add (eventTaskAdd)="taskPush()"></app-todo-button-add>
+</div>
