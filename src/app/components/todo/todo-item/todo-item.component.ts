@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Task } from '../../../types';
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.scss']
+  styleUrls: ['./todo-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItemComponent {
 
