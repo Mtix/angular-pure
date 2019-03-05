@@ -18,7 +18,7 @@ export class TodoComponent implements OnInit {
     this.taskList = this.storeService.getStore();
 
     this.storeService
-      .changeStore
+      .changeDetection
       .subscribe((data: Array<Task>) => {
         this.taskList = data;
       });

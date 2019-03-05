@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { StorageService } from '@mtix/local-storage';
 import { Task } from '../types';
 
 const STORE_NAME = 'store-app';
@@ -8,17 +9,20 @@ const STORE_NAME = 'store-app';
 })
 export class StoreService {
 
-  public changeStore: EventEmitter<Task[]> = new EventEmitter();
+  constructor(private storage: StorageService) { 
+    this.storage.init({
+      storeName: STORE_NAME
+    });
+  }
 
-  constructor() { }
+  public changeDetection = this.storage.changeStore;
 
   public setStore(data: Array<Task>) {
-    localStorage.setItem(STORE_NAME, JSON.stringify(data));
-    this.changeStore.emit(data);
+    this.storage.setState(data);
   }
 
   public getStore(): Array<Task> {
-    return JSON.parse(localStorage.getItem(STORE_NAME));
+    return this.storage.getState();
   }
 
   public pushTask(taskName: string) {
